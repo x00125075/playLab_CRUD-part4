@@ -9,31 +9,31 @@ import play.data.validation.*;
 
 // Product Entity managed by the ORM
 @Entity
-public class users extends Model {
+public class User extends Model {
 
-    @id
+    @Id
     private String email;
 
-    @Constarints.Required
+    @Constraints.Required
     private String role;
 
-    @Constarints.Required
+    @Constraints.Required
     private String name;
 
-    @Constarints.Required
+    @Constraints.Required
     private String password;
 
-    public Users(){
+    public User(){
 
 
     }
-    public static Finder <String.User> finsd = new Finder<String,Usre>(User.class);
+    public static Finder <String, User> find = new Finder<String, User>(User.class);
 
-    public static List<users> findall () {
-        return Users.find.all();
+    public static List<User> findall () {
+        return User.find.all();
 
     }
-    public static Users authentication(Sting email, Sting password){
+    public static User authentication(String email, String password){
         return find.where().eq("Email", email).eq(password, password).findUnique();
 
     }
